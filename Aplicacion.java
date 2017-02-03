@@ -1,4 +1,5 @@
 
+
 public class Aplicacion {
 
 	public static void main(String[] args) {
@@ -19,13 +20,13 @@ public class Aplicacion {
 				
 		System.out.println("\nLista:");
 		System.out.println(lista1.toString());
-		System.out.println("\nBúsqueda:");
+		System.out.println("\nBÃºsqueda:");
 		System.out.println(lista1.BuscarDato(1722023423));
 		
 		System.out.println("\nEjercicio 2:");
-		Producto tomate= new Producto("Tomate",4,false);
+		Producto tomate= new Producto("Tomate",3,true);
 		Producto lechuga= new Producto("Lechuga",2,true);
-		Producto sandia= new Producto("Sandia",1,false);
+		Producto sandia= new Producto("Sandia",1,true);
 		Producto pepino= new Producto("Pepino",6,true);
 		
 		LinkedListMercado lista2 = new LinkedListMercado();
@@ -34,8 +35,14 @@ public class Aplicacion {
 		lista2.InsertarItem(sandia);
 		lista2.InsertarItem(pepino);
 		
+		
 		System.out.println("\nLista de compras:");
 		System.out.println(lista2.toString());
+		
+		lista2.Compra("Tomate", 3);
+		lista2.Compra("Pepino", 3);
+		lista2.Compra("sandia", 2);
+		
 		System.out.println("\nProductos Pendientes:");
 		System.out.println(lista2.Pendientes());
 		

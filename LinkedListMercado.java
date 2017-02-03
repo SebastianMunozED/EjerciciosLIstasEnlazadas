@@ -31,14 +31,31 @@ public class LinkedListMercado {
 		}
 	}
 	
+	public void Compra(String prod, int cant){
+		Nodo2 aux=head;
+		int a,b;			
+		while(aux!=null){
+			if(aux.getItem().getNombre().equalsIgnoreCase(prod)){
+				a=aux.getItem().getCantidad();
+				b=a-cant;
+				if(b<0)
+					System.out.println("Esta comprando de mas de: "+prod);
+				else{
+				aux.getItem().setCantidad(b);
+				if(aux.getItem().getCantidad()==0){
+					aux.getItem().setPendiente(false);}
+				}
+			}
+			aux=aux.getEnlace2();
+		}	
+	}
+	
 
 	
 	public String Pendientes(){
 		String lista="";
 		Nodo2 aux=head;
-		if(aux.getItem().isPendiente())
-			lista+=aux+"\n";
-		while(aux.getEnlace2()!=null){
+		while(aux!=null){
 			if(aux.getItem().isPendiente())
 				lista+=aux.getItem()+"\n";
 			aux=aux.getEnlace2();
@@ -51,17 +68,19 @@ public class LinkedListMercado {
 	public String toString() {
 		String lista="";
 		Nodo2 aux=head;
-		lista+=aux+"\n";
-		while(aux.getEnlace2()!=null){
-			lista+=aux.getEnlace2()+"\n";
+		while(aux!=null){
+			lista+=aux+"\n";
 			aux=aux.getEnlace2();
 		}
-		
 		lista+="Tamanio de Lista: "+size;
 		return lista;
 	}
 	
 }
+
+
+
+
 
 
 
